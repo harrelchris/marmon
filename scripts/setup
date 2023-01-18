@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+# Create virtual environment
+if [ ! -d "venv" ]
+then
+  python3 -m venv .venv
+fi
+
+# Activate virtual environment
+if [[ "$VIRTUAL_ENV" == "" ]]
+then
+  source .venv/bin/activate
+fi
+
+# Update virtual environment
+python3 -m pip install -U pip setuptools wheel
+
+# Install dependencies
+pip install -r requirements-dev.txt
+
+# Install pre-commit
+pre-commit install

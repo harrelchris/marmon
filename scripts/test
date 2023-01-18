@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+# Activate virtual environment
+if [[ "$VIRTUAL_ENV" == "" ]]
+then
+  source .venv/bin/activate
+fi
+
+# Run Pytest with Coverage and generate reports
+coverage erase
+coverage run -m pytest --html=.reports/pytest/index.html --self-contained-html
+coverage html

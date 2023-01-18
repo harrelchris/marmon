@@ -1,0 +1,3 @@
+from django.core.management.base import BaseCommand
+
+# https://docs.djangoproject.com/en/dev/howto/custom-management-commands/

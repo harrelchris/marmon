@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+# Activate virtual environment
+if [[ "$VIRTUAL_ENV" == "" ]]
+then
+  source .venv/bin/activate
+fi
+
+python3 app/manage.py runserver localhost:80
