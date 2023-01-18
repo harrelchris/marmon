@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <img src="https://images.evetech.net/characters/{{ user.character.id }}/portrait?size=256" alt="portrait" width="256" height="256" class="rounded">
+  <h2>{{ user.character.name }}</h2>
+  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+    <i class="bi bi-trash"></i> Delete Account
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header border-bottom-0">
+          <h1 class="modal-title fs-5">Delete Account?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body py-0">
+          <p>Please confirm that you would like to delete your account.</p>
+          <p>
+            Remember to also delete this third-party application
+            <a href="https://community.eveonline.com/support/third-party-applications/">here</a>.
+          </p>
+        </div>
+        <div class="modal-footer flex-column border-top-0">
+          <a href="{% url 'account:delete' %}" type="button" class="btn btn-lg btn-danger w-100 mx-0 mb-2"><i class="bi bi-trash"></i> Delete Account</a>
+          <button type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

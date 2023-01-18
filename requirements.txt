@@ -1,4 +1,7 @@
 # Project dependencies
 
+Authlib
 Django
 Django-Environ
+Python-Jose
+Requests

@@ -1,0 +1,32 @@
+<header class="px-2 py-3 text-bg-dark">
+  <div>
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="{% url 'dashboard:index' %}" class="d-flex text-white text-decoration-none">
+        <span class="fs-4"><i class="bi bi-p-square"></i> PROJECT NAME</span>
+      </a>
+
+      <ul class="nav col-12 ms-5 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{% url 'dashboard:index' %}" class="nav-link px-2 {% if 'dashboard' in request.path %}text-secondary{% else %}text-white{% endif %}">Dashboard</a></li>
+        <li><a href="{% url 'account:settings' %}" class="nav-link px-2 {% if 'account' in request.path %}text-secondary{% else %}text-white{% endif %}">Account</a></li>
+      </ul>
+
+      <p id="eve-time-wrapper" class="px-3 m-0"><i class="bi bi-clock"></i> <span id="eve-time"></span></p>
+      <p id="player-count-wrapper" class="px-3 m-0"><i class="bi bi-people"></i> <span id="player-count"></span></p>
+
+      <div class="text-end">
+        <div class="dropdown">
+          <div class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://images.evetech.net/characters/{{ user.character.id }}/portrait?size=32" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>{{ user.character.name }}</strong>
+          </div>
+
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
+            <li><a class="dropdown-item" href="{% url 'account:settings' %}"><i class="bi bi-gear"></i> Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'sso:logout' %}"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
